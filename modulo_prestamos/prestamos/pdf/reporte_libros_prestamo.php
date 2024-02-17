@@ -3,7 +3,9 @@ require('./../../fpdf/fpdf.php');
 require('./../../../conexion/database.php');
 
 
-$consul = "CALL SP_pruebaReporte('202023097')";
+$matricula = $conn->real_escape_string($_POST['matricula']);
+
+$consul = "CALL SP_pruebaReporte($matricula)";
 $resul = mysqli_query($conn, $consul);
 $mostrarAlum = mysqli_fetch_array($resul);
 
@@ -76,7 +78,7 @@ $pdf->SetTextColor(0);  // Color del texto
 require('./../../../conexion/database.php');
 
 
-$consulta = "CALL SP_pruebaReporte(202023097)";
+$consulta = "CALL SP_pruebaReporte($matricula)";
 $resultados = mysqli_query($conn, $consulta);
 
 // Llenar la tabla con los datos de la consulta
@@ -130,4 +132,6 @@ $pdf->Cell(0, 10, '                                       Alumno                
 // Salida del PDF (puede ser directamente en el navegador o guardar en un archivo)
 //$pdf->Output('datos_libro.pdf', 'D');
 $pdf->Output('D', 'Reporte_'.$mostrarAlum[8].'.pdf');
+
+header('Location: ./index_prestamos.php');
 ?>

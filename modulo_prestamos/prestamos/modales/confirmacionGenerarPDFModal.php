@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cancelar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
                         <button type="submit" class="btn btn-danger"><i class="fa-solid fa-check"></i> Continuar</button>
                     </div>
                 </form>
