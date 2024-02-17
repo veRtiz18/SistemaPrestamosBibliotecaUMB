@@ -129,5 +129,5 @@ $pdf->SetFont('Arial', '', 11);
 $pdf->Cell(0, 10, '                                       Alumno                                                             Encargado de Biblioteca', 0, 0, 'L');
 // Salida del PDF (puede ser directamente en el navegador o guardar en un archivo)
 //$pdf->Output('datos_libro.pdf', 'D');
-$pdf->Output();
+$pdf->Output('D', 'Reporte_'.$mostrarAlum[8].'.pdf');
 ?>

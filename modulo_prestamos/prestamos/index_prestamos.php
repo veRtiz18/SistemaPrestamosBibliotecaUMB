@@ -140,6 +140,7 @@ require('./../../../UMB_biblioteca/conexion/database.php');
 <?php require('./modales/nuevoModal.php'); ?>
 <?php require('./modales/verModal.php'); ?>
 <?php require('./modales/confirmacionModal.php'); ?>
+<?php require('./modales/confirmacionGenerarPDFModal.php'); ?>
 <script>
     confirmacionModal.addEventListener('shown.bs.modal', event => {
         let button = event.relatedTarget;
@@ -174,17 +175,12 @@ require('./../../../UMB_biblioteca/conexion/database.php');
             .catch(err => console.error(err));
     });
 
-
     let nuevoModal = document.getElementById('nuevoModal')
     let verModal = document.getElementById('verModal')
-
-
-
 
     nuevoModal.addEventListener('shown.bs.modal', event => {
         nuevoModal.querySelector('.modal-body #campo').focus()
     })
-
 
     nuevoModal.addEventListener('hide.bs.modal', event => {
         nuevoModal.querySelector('.modal-body #campo').value = ""
@@ -201,7 +197,6 @@ require('./../../../UMB_biblioteca/conexion/database.php');
 
     })
 
-
     verModal.addEventListener('shown.bs.modal', event => {
         let button = event.relatedTarget;
         let id = button.getAttribute('data-bs-id');
@@ -211,8 +206,6 @@ require('./../../../UMB_biblioteca/conexion/database.php');
         let inputno_inventario = verModal.querySelector('.modal-body #no_inventario')
         let inputnombre_editorial = verModal.querySelector('.modal-body #nombre_editorial')
         let inputnombre_autor = verModal.querySelector('.modal-body #nombre_autor')
-        // let carrera_libro = verModal.querySelector('.modal-body #carrera_libro')
-
         let inputanio = verModal.querySelector('.modal-body #anio')
 
         let inputnombre_alumno = verModal.querySelector('.modal-body #nombre_alumno')
@@ -256,6 +249,53 @@ require('./../../../UMB_biblioteca/conexion/database.php');
                 // carrera_alumno.value = data.carrera_alumno;
 
 
+            })
+            .catch(err => console.error(err));
+    });
+
+
+    //parte del modal donde se muestra el reporte PDF
+
+    confirmacionGenerarPDF.addEventListener('hide.bs.modal', event => {
+        confirmacionGenerarPDF.querySelector('.modal-body #matricula').value = "";
+    })
+    confirmacionGenerarPDF.addEventListener('hide.bs.modal', event => {
+        confirmacionGenerarPDF.querySelector('.modal-body #nombre_alumno').value = "";
+    })
+    confirmacionGenerarPDF.addEventListener('hide.bs.modal', event => {
+        confirmacionGenerarPDF.querySelector('.modal-body #carrera').value = "";
+    })
+    confirmacionGenerarPDF.addEventListener('hide.bs.modal', event => {
+        confirmacionGenerarPDF.querySelector('.modal-body #semestre').value = "";
+    })
+
+    confirmacionGenerarPDF.addEventListener('shown.bs.modal', event => {
+        let button = event.relatedTarget;
+        let id = button.getAttribute('data-bs-id');
+        let inputId = confirmacionGenerarPDF.querySelector('.modal-body #id');
+
+        let inputmatricula = confirmacionGenerarPDF.querySelector('.modal-body #matricula')
+        let inputnombre_alumno = confirmacionGenerarPDF.querySelector('.modal-body #nombre_alumno')
+        let inputcarrera = confirmacionGenerarPDF.querySelector('.modal-body #carrera')
+        let inputsemestre = confirmacionGenerarPDF.querySelector('.modal-body #semestre')
+
+
+        let url = "./getPrestamo.php";
+        let formData = new FormData();
+        formData.append('id', id);
+
+        fetch(url, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                
+                inputId.value = data.id_prestamo
+                inputnombre_alumno.value = data.nombre_estudiante + " " + data.ape_Paterno + " " + data.ape_Materno;
+                inputmatricula.value = data.matricula;
+                inputcarrera.value = data.carrera_alumno;
+                inputsemestre.value = data.carrera_semestre;
             })
             .catch(err => console.error(err));
     });

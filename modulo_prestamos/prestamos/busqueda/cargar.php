@@ -23,9 +23,9 @@ $sLimit = "LIMIT $inicio , $limit";
 $sql = "SELECT SQL_CALC_FOUND_ROWS 
 prestamo.id_prestamo, 
 prestamo.no_inventario, 
-libros.titulo_libro as titulo_libro, 
+libros.titulo_libro AS titulo_libro, 
 prestamo.matricula, 
-estudiante.nombre_estudiante as nombre_estudiante,
+estudiante.nombre_estudiante AS nombre_estudiante,
 estudiante.ape_Paterno, 
 estudiante.ape_Materno,
 prestamo.fecha, 
@@ -39,13 +39,14 @@ FROM prestamo
 INNER JOIN libros ON prestamo.no_inventario = libros.no_inventario
 INNER JOIN estudiante ON prestamo.matricula = estudiante.matricula
 WHERE  
-    prestamo.id_prestamo LIKE '%" . $campo . "%' OR 
-    prestamo.no_inventario LIKE '%" . $campo . "%' OR 
-    titulo_libro LIKE '%" . $campo . "%' OR 
-    prestamo.matricula LIKE '%" . $campo . "%' OR 
-    nombre_estudiante LIKE '%" . $campo . "%' OR 
-    prestamo.fecha LIKE '%" . $campo . "%' OR 
-    prestamo.fecha_entrega LIKE '%" . $campo . "%' 
+prestamo.id_prestamo LIKE '%" . $campo . "%' OR 
+prestamo.no_inventario LIKE '%" . $campo . "%' OR 
+titulo_libro LIKE '%" . $campo . "%' OR 
+prestamo.matricula LIKE '%" . $campo . "%' OR 
+nombre_estudiante LIKE '%" . $campo . "%' OR 
+prestamo.fecha LIKE '%" . $campo . "%' OR 
+prestamo.fecha_entrega LIKE '%" . $campo . "%'
+ORDER BY descripcion_estatus
 $sLimit;";
 
 
@@ -90,35 +91,40 @@ if ($num_rows > 0) {
         $output['data'] .= '<td class="text-center small">' . $row['fecha'] . '</td>';
         $output['data'] .= '<td class="text-center small">' . $row['fecha_entrega'] . '</td>';
         $output['data'] .= '<td class="text-center small">' . $row['descripcion_estatus'] . '</td>';
-        
+
         $output['data'] .=
             '<td>
-            <div class="d-flex justify-content-center align-items-center">
-                <div class="ms-1">
-                    <a href="#" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="Terminar préstamo" data-bs-toggle="modal" data-bs-target="#confirmacionModal" data-bs-id="' . $row['id_prestamo'] . '">
-                        <i class="fa-regular fa-calendar-check"></i>
-                    </a>
-                </div>
-        
-                <div class="ms-1">
-                    <a href="#" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="bottom" title="Ver más detalles" data-bs-toggle="modal" data-bs-target="#verModal" data-bs-id="' . $row['id_prestamo'] . '">
-                        <i class="fa-solid fa-eye"></i>
-                    </a>
-                </div>
-        
-                <div class="ms-1">
-                    <a href="#" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="Generar PDF" data-bs-toggle="modal" data-bs-target="#verModal" data-bs-id="' . $row['id_prestamo'] . '">
+            <div class="d-flex justify-content-center align-items-center">';
+
+        if ($row['descripcion_estatus'] == 'ADEUDO') {
+            $output['data'] .= '
+            <div class="ms-1">
+            <a href="#" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="Terminar préstamo" data-bs-toggle="modal" data-bs-target="#confirmacionModal" data-bs-id="' . $row['id_prestamo'] . '">
+                <i class="fa-regular fa-calendar-check"></i>
+            </a>
+        </div>
+                    
+                    <div class="ms-1">
+                    <a href="#" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="Generar PDF" data-bs-toggle="modal" data-bs-target="#confirmacionGenerarPDF" data-bs-id="' . $row['id_prestamo'] . '">
                         <i class="fa-solid fa-file-pdf"></i>
                     </a>
                 </div>
+                
+                <div class="ms-1">
+                <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar datos del préstamo" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="' . $row['id_prestamo'] . '">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+            </div>';
+        }
+
+        $output['data'] .= ' 
         
                 <div class="ms-1">
-                    <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar datos del préstamo" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="' . $row['id_prestamo'] . '">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                </div>
-        
-               
+                <a href="#" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="bottom" title="Ver más detalles" data-bs-toggle="modal" data-bs-target="#verModal" data-bs-id="' . $row['id_prestamo'] . '">
+                    <i class="fa-solid fa-eye"></i>
+                </a>
+            </div>
+       
             </div>
         </td>
         ';
@@ -139,13 +145,13 @@ if ($output['totalRegistros'] > 0) {
 
     $numeroInicio = 1;
 
-    if(($pagina - 4) > 1){
+    if (($pagina - 4) > 1) {
         $numeroInicio = $pagina - 4;
     }
 
     $numeroFin = $numeroInicio + 9;
 
-    if($numeroFin > $totalPaginas){
+    if ($numeroFin > $totalPaginas) {
         $numeroFin = $totalPaginas;
     }
 
