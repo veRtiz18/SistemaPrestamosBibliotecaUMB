@@ -1,0 +1,21 @@
+/* Estilo para los enlaces de navegación */
+.nav-link {
+    color: #fff; /* Color de texto para los enlaces */
+    text-decoration: none; /* Elimina la subrayado predeterminado */
+
+
+    background-color: #212529; /* Color de fondo blanco */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave en color de fondo y texto */
+}
+
+/* Estilo para los enlaces de navegación al pasar el mouse */
+.nav-link:hover {
+    background-color: #fff; /* Cambia el color de fondo al pasar el mouse */
+    color: #212529; /* Cambia el color del texto al pasar el mouse a negro */
+}
+
+/* Estilo para el enlace de navegación activo */
+.nav-link.active {
+    background-color: #fff; /* Color de fondo para el enlace activo */
+    color: #212529; /* Color de texto para el enlace activo */
+}

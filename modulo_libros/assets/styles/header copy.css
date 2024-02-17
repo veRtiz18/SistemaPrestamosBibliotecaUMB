@@ -1,0 +1,19 @@
+
+.nav-link:hover {
+    background-color: #fff;
+    color: #75bb1f;
+    border: 1px solid #75bb1f;
+    /* Agrega un borde al elemento en hover */
+}
+
+
+.nav-link.active {
+    background-color: #0b0f06;
+    /* Cambia el color de fondo para el enlace activo */
+    color: #75bb1f;
+    border: 1px solid #75bb1f;
+}
+
+.nav-link {
+    color: #75bb1f;
+}

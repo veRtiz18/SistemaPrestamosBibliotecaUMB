@@ -1,0 +1,82 @@
+        /* Estilos personalizados aquí */
+        .card-title i {
+            margin-right: 10px;
+            color: white;
+            /* Color blanco para los íconos dentro de los encabezados */
+        }
+
+        /* Estilo para el fondo principal */
+        body {
+            background-color: white;
+            /* Fondo blanco */
+            color: #333;
+            /* Color del texto */
+        }
+
+        /* Estilo para la barra de navegación */
+        .navbar {
+            background-color: #75bb1f;
+            /* Color verde para la barra de navegación */
+            color: white;
+            /* Color del texto de la barra de navegación */
+        }
+
+        .navbar1 {
+            background-color: #fafcf9;
+            /* Color verde para la barra de navegación */
+            color: white;
+            /* Color del texto de la barra de navegación */
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            background-color: white;
+            /* Color del ícono del botón de navegación */
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: white;
+            /* Color de los enlaces de navegación */
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #f8f9fa;
+            /* Color de los enlaces de navegación al pasar el cursor */
+        }
+
+        /* Estilo para el fondo de los cards */
+        .card {
+            background-color: #212529;
+            /* Fondo verde de los cards */
+            border: none;
+            /* Sin borde en los cards */
+        }
+
+        /* Estilo para el texto de los cards */
+        .card-text {
+            color: white;
+            /* Color del texto en los cards */
+        }
+
+        /* Estilo para los encabezados de los cards */
+        .card-title {
+            color: white;
+            /* Color blanco para los encabezados de los cards */
+        }
+
+        /* Estilo para los botones en los cards */
+        .btn.btn-primary {
+            background-color: white;
+            /* Fondo blanco para los botones */
+            color: #212529;
+            /* Texto verde para los botones */
+            border: 1px solid white;
+            /* Contorno blanco para los botones */
+        }
+
+        /* Estilo para el hover de los botones en los cards */
+        .btn.btn-primary:hover {
+            background-color: #666769;
+            /* Fondo en hover */
+            color: white;
+            /* Texto blanco en hover */
+        }

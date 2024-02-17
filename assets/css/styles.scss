@@ -1,0 +1,37 @@
+// Required
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+// Create your own map
+$custom-colors: (
+  "umb-color": #75bb1f,
+  "excel-color": #1D6F42
+);
+.page-item.active {
+  a.page-link {
+    background-color: white; // Cambia el color de fondo del elemento activo
+    color: #212529; // Cambia el color del texto del elemento activo
+    border-color: #000000; // Cambia el color del borde del elemento activo
+  }
+}
+
+.page-item {
+  a.page-link {
+    background-color: #212529; // Cambia el color de fondo del elemento inactivo
+    color: white; // Cambia el color del texto del elemento inactivo
+    border-color: white; // Cambia el color del borde del elemento inactivo
+  }
+
+
+}
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Modificar colores de paginación
+$pagination-color: white; // Cambia el color del texto del paginador
+$pagination-bg: white; // Cambia el color de fondo del paginador
+$pagination-border-color: #212529; // Cambia el color del borde del paginador
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
