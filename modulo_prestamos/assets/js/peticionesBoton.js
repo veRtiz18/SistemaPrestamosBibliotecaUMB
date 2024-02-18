@@ -7,7 +7,7 @@ function getCodigos() {
     const lista = document.getElementById("btn_estatus");
 
     if (inputCP.length > 0 && inputCPU.length > 0) {
-        let url = "./../inc/getBoton.php";
+        let url = "./inc/getBoton.php";
         let formData = new FormData();
         formData.append("campoUsuarios", inputCPU);
         formData.append("campo", inputCP);

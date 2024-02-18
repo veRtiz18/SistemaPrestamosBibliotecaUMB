@@ -14,5 +14,5 @@ while ($fila = mysqli_fetch_array($mensaje, MYSQLI_ASSOC)) {
     $_SESSION['color'] = $fila['color'];
 }
 
-header('Location: ./index_prestamos.php');
+header('Location: ./../index_prestamos.php');
 // C:\xampp\htdocs\UMB_biblioteca\modulo_prestamos\app\prestamos\index_prestamos.php

@@ -13,10 +13,10 @@ function getCodigos() {
     if (inputCP.length > 0) {
 
 
-        let url = "./../inc/getUsuarios.php";
+        let url = "./inc/getUsuarios.php";
         let formData = new FormData()
         formData.append("campoUsuarios", inputCP)
-
+        
         fetch(url, {
             method: "POST",
             body: formData,

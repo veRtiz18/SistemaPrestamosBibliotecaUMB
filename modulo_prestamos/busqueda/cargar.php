@@ -1,6 +1,6 @@
 <?php
 
-require('./../../../conexion/database.php');
+require('./../../conexion/database.php');
 
 
 $table = "prestamo";

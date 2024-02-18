@@ -89,7 +89,7 @@ let confirmacionModal = document.getElementById('confirmacionModal');
             let inputnombre_autor = confirmacionModal.querySelector('.modal-body #autor_libro')
             let inputmatricula = confirmacionModal.querySelector('.modal-body #matricula')
 
-            let url = "./getPrestamo.php";
+            let url = "./acciones/getPrestamo.php";
             let formData = new FormData();
             formData.append('id', id);
 

@@ -1,6 +1,6 @@
 <?php
 
-require('./../../../conexion/database.php');
+require('./../../conexion/database.php');
 
 
 $table = "prestamo";
@@ -153,7 +153,7 @@ if ($num_rows > 0) {
     }
 } else {
     $output['data'] .= '<div class="text-center mt-5">';
-    $output['data'] .= '    <img src="./../img/estanteria.png" alt="Imagen" class="img-fluid mb-4" style="max-width: 150px;">';
+    $output['data'] .= '    <img src="./img/estanteria.png" alt="Imagen" class="img-fluid mb-4" style="max-width: 150px;">';
     $output['data'] .= '    <h2 class="text-center">¡UPS!</h1>';
     $output['data'] .= '    <h4 class="text-center">No existen registros con los datos de búsqueda o no existen préstamos vigentes en curso...</h3>';
     $output['data'] .= '    <a href="./index_prestamos.php">Volver a el administrador de préstamos.</a>';

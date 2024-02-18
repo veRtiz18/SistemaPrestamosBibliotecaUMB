@@ -1,6 +1,6 @@
 <?php
-require('./../../fpdf/fpdf.php');
-require('./../../../conexion/database.php');
+require('./../fpdf/fpdf.php');
+require('./../../conexion/database.php');
 
 
 $matricula = $conn->real_escape_string($_POST['matricula']);
@@ -13,11 +13,11 @@ $mostrarAlum = mysqli_fetch_array($resul);
 $pdf = new FPDF('P','mm', 'A4');
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 10);
-$imagePathLeft = './../../../assets/img/logo_umb.png';
+$imagePathLeft = './../../assets/img/logo_umb.png';
 $pdf->Image($imagePathLeft, 10, 10, 20, 10);
 
 // Agregar la imagen en la esquina derecha
-$imagePathRight = './../../../assets/img/logo_edomex.png';
+$imagePathRight = './../../assets/img/logo_edomex.png';
 $pdf->Image($imagePathRight, $pdf->GetPageWidth() - 40, 10, 35, 10);
 
 $pdf->Ln(15);
@@ -75,7 +75,7 @@ $pdf->SetTextColor(0);  // Color del texto
 
  
 
-require('./../../../conexion/database.php');
+require('./../../conexion/database.php');
 
 
 $consulta = "CALL SP_pruebaReporte($matricula)";
@@ -113,7 +113,7 @@ $resultados = mysqli_query($conn, $consulta);
     }
 mysqli_close($conn);
 
-require('./../../../conexion/database.php');
+require('./../../conexion/database.php');
 
 
 // Cerrar la conexión a la base de datos

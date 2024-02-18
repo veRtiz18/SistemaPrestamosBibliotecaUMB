@@ -13,7 +13,7 @@
 
                         <label class="fw-semibold">Folio:</label>
 
-                        <form action="actualiza_prestamo.php" method="POST">
+                        <form action="./acciones/actualiza_prestamo.php" method="POST">
                             <input type="text" name="folio" id="folio" value="0001222" class="border-0 fs-5 mb-1" readonly>
 
 

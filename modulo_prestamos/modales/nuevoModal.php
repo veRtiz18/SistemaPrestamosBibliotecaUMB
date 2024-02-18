@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="inserta_prestamo.php" method="post">
+                <form action="./acciones/inserta_prestamo.php" method="post">
                     <div class="container">
                         <div class="row">
                             <div class="card col-6">

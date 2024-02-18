@@ -16,7 +16,7 @@ confirmacionModal.addEventListener('shown.bs.modal', event => {
     let inputnombre_autor = confirmacionModal.querySelector('.modal-body #autor_libro')
     let inputmatricula = confirmacionModal.querySelector('.modal-body #matricula')
 
-    let url = "./getPrestamo.php";
+    let url = "./acciones/getPrestamo.php";
     let formData = new FormData();
     formData.append('id', id);
 
@@ -79,7 +79,7 @@ verModal.addEventListener('shown.bs.modal', event => {
     let inputfecha_final = verModal.querySelector('.modal-body #fecha_final')
     let carrera_alumno = verModal.querySelector('.modal-body #carrera_alumno')
 
-    let url = "./getPrestamo.php";
+    let url = "./acciones/getPrestamo.php";
     let formData = new FormData();
     formData.append('id', id);
 
@@ -135,7 +135,7 @@ confirmacionGenerarPDF.addEventListener('shown.bs.modal', event => {
     let inputsemestre = confirmacionGenerarPDF.querySelector('.modal-body #semestre')
 
 
-    let url = "./getPrestamo.php";
+    let url = "./acciones/getPrestamo.php";
     let formData = new FormData();
     formData.append('id', id);
 
@@ -221,7 +221,7 @@ aplazarPrestamoModal.addEventListener('shown.bs.modal', event => {
     let carrera_alumno = aplazarPrestamoModal.querySelector('.modal-body #carrera_alumno')
 
 
-    let url = "./getPrestamo.php";
+    let url = "./acciones/getPrestamo.php";
     let formData = new FormData();
     formData.append('id', id);
 

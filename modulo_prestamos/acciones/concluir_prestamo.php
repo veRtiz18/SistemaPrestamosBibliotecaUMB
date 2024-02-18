@@ -1,6 +1,6 @@
 <?php
 session_start();
-require './../../../conexion/database.php';
+require './../../conexion/database.php';
 
 $id = $conn->real_escape_string($_POST['id']);
 $no_inventario = $conn->real_escape_string($_POST['no_inventario']);
