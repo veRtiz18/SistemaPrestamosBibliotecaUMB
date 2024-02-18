@@ -141,6 +141,7 @@ require('./../../../UMB_biblioteca/conexion/database.php');
 <?php require('./modales/verModal.php'); ?>
 <?php require('./modales/confirmacionModal.php'); ?>
 <?php require('./modales/confirmacionGenerarPDFModal.php'); ?>
+<?php require('./modales/aplazarPrestamoModal.php'); ?>
 <script>
     confirmacionModal.addEventListener('shown.bs.modal', event => {
         let button = event.relatedTarget;
@@ -290,12 +291,69 @@ require('./../../../UMB_biblioteca/conexion/database.php');
             })
             .then(response => response.json())
             .then(data => {
-                
+
                 inputId.value = data.id_prestamo
                 inputnombre_alumno.value = data.nombre_estudiante + " " + data.ape_Paterno + " " + data.ape_Materno;
                 inputmatricula.value = data.matricula;
                 inputcarrera.value = data.carrera_alumno;
                 inputsemestre.value = data.carrera_semestre;
+            })
+            .catch(err => console.error(err));
+    });
+
+    //parte para el posponer un prestamo: 
+    aplazarPrestamoModal.addEventListener('shown.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #fecha_final').focus()
+    })
+    aplazarPrestamoModal.addEventListener('shown.bs.modal', event => {
+        let button = event.relatedTarget;
+        let id = button.getAttribute('data-bs-id');
+
+        let inputId = aplazarPrestamoModal.querySelector('.modal-body #folio');
+        let inputnombre_libro = aplazarPrestamoModal.querySelector('.modal-body #nombre_libro')
+        let inputno_inventario = aplazarPrestamoModal.querySelector('.modal-body #no_inventario')
+        let inputnombre_editorial = aplazarPrestamoModal.querySelector('.modal-body #nombre_editorial')
+        let inputnombre_autor = aplazarPrestamoModal.querySelector('.modal-body #nombre_autor')
+        let inputanio = aplazarPrestamoModal.querySelector('.modal-body #anio')
+
+        let inputnombre_alumno = aplazarPrestamoModal.querySelector('.modal-body #nombre_alumno')
+        let inputmatricula = aplazarPrestamoModal.querySelector('.modal-body #matricula')
+        let inputcarrera = aplazarPrestamoModal.querySelector('.modal-body #carrera')
+        let inputsemestre = aplazarPrestamoModal.querySelector('.modal-body #semestre')
+
+        let inputestatus = aplazarPrestamoModal.querySelector('.modal-body #estatus')
+        let inputfecha_inicio = aplazarPrestamoModal.querySelector('.modal-body #fecha_inicio')
+        let inputfecha_final = aplazarPrestamoModal.querySelector('.modal-body #fecha_final')
+        let carrera_alumno = aplazarPrestamoModal.querySelector('.modal-body #carrera_alumno')
+
+
+        let url = "./getPrestamo.php";
+        let formData = new FormData();
+        formData.append('id', id);
+
+        fetch(url, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Asegúrate de que el elemento con el ID 'id' existe dentro del modal body
+                inputId.value = data.id_prestamo;
+                inputnombre_libro.value = data.titulo_libro;
+                inputno_inventario.value = data.no_inventario;
+                inputnombre_editorial.value = data.editorial_libro;
+                inputnombre_autor.value = data.autor_libro;
+                inputanio.value = data.anio_libro;
+
+                inputnombre_alumno.value = data.nombre_estudiante + " " + data.ape_Paterno + " " + data.ape_Materno;
+                inputmatricula.value = data.matricula;
+                inputcarrera.value = data.carrera_alumno;
+                inputsemestre.value = data.carrera_semestre;
+
+                inputestatus.value = data.descripcion_estatus;
+                inputfecha_inicio.value = data.fecha;
+                inputfecha_final.value = data.fecha_entrega;
+
             })
             .catch(err => console.error(err));
     });
@@ -316,7 +374,6 @@ require('./../../../UMB_biblioteca/conexion/database.php');
     document.getElementById("num_registros").addEventListener("change", function() {
         getData()
     }, false)
-
 
     /* Peticion AJAX */
     function getData() {

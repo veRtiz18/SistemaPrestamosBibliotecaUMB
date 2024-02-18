@@ -111,7 +111,7 @@ if ($num_rows > 0) {
                 </div>
                 
                 <div class="ms-1">
-                <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar datos del préstamo" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="' . $row['id_prestamo'] . '">
+                <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar datos del préstamo" data-bs-toggle="modal" data-bs-target="#aplazarPrestamoModal" data-bs-id="' . $row['id_prestamo'] . '">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
             </div>';
