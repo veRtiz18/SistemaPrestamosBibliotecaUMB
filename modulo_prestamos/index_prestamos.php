@@ -45,7 +45,7 @@ require('./../../UMB_biblioteca/conexion/database.php');
                                 <a href="./sistema-prestamos.html" class="dropdown-item bg-dark text-light fs-6">Menú Principal</a>
                             </li>
                             <li><a class="dropdown-item" href="./index_prestamos_vigentes.php">Préstamos Vigentes</a></li>
-                            <li><a class="dropdown-item" href="./prestamos-vencidos.php">Préstamos Vencidos</a></li>
+                            <li><a class="dropdown-item" href="./index_prestamos_vencidos.php">Préstamos Vencidos</a></li>
                             <li><a class="dropdown-item" href="./prestamos-devolucion.php">Préstamos Vigentes</a></li>
                         </ul>
                     </div>
