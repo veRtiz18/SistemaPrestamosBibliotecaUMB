@@ -2,7 +2,7 @@
 <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header bg-success">
+            <div class="modal-header bg-secondary">
                 <h1 class="modal-title fs-5 text-light" id="confirmacionModalLabel"><i class="fa-regular fa-calendar-check"></i> Concluir Préstamo</h1>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -15,7 +15,7 @@
                             <input type="text" id="id" name="id" hidden>
 
                             <ul class="list-group mb-3">
-                                <li class="list-group-item bg-success text-light mt-2" aria-current="true">
+                                <li class="list-group-item bg-secondary text-light mt-2" aria-current="true">
                                     <h6><i class="fas fa-book"></i> Datos del libro</h6>
                                 </li>
                                 <li class="list-group-item fw-bolder">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="text-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cancelar</button>
-                        <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i> Terminar</button>
+                        <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-check"></i> Terminar</button>
                     </div>
                 </form>
 

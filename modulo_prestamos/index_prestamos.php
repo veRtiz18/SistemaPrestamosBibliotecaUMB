@@ -120,7 +120,7 @@ require('./../../UMB_biblioteca/conexion/database.php');
                     <a href="index_prestamos_vigentes.php" class="link-success link-offset-2 link-underline-opacity-100 link-underline-opacity-100-hover d-block">Préstamos Vigentes</a>
                 </div>
                 <div class="ms-3"> <!-- Agrega un div contenedor -->
-                    <a href="#" class="link-danger link-offset-2 link-underline-opacity-100 link-underline-opacity-100-hover d-block">Préstamos Vencidos</a>
+                    <a href="index_prestamos_vencidos.php" class="link-danger link-offset-2 link-underline-opacity-100 link-underline-opacity-100-hover d-block">Préstamos Vencidos</a>
                 </div>
             </div>
 
@@ -154,7 +154,10 @@ require('./../../UMB_biblioteca/conexion/database.php');
 
         <div class="row">
             <div class="col-4">
-
+                <a class="btn btn-danger">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Generar Adeudos en PDF
+                </a>
             </div>
             <div class="col-2">
                 <label id="lbl-total" class="mt-2"></label>

@@ -58,7 +58,7 @@ $row_filtro = $resFiltro->fetch_array();
 $totalFiltro = $row_filtro[0];
 
 /* Consulta para total de registro filtrados */
-$sqlTotal = "SELECT count($id) FROM $table WHERE estatus = 1";
+$sqlTotal = "SELECT count($id) FROM $table WHERE prestamo.fecha_entrega < DATE(NOW()) AND prestamo.estatus = 1";
 $resTotal = $conn->query($sqlTotal);
 $row_total = $resTotal->fetch_array();
 $totalRegistros = $row_total[0];

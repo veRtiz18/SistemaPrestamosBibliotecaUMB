@@ -37,9 +37,6 @@
                             </form>
                         </div>
 
-
-
-
                         <div class="justify-content-md-end col-6">
                             <p class="fs-6">Importar registros desde Excel:</p>
                             <form enctype="multipart/form-data" method="post" action="./accionesExcel/importarRegistros.php" class="needs-validation" novalidate>

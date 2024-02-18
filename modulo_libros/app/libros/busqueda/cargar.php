@@ -20,39 +20,24 @@ if (!$pagina) {
 }
 $sLimit = "LIMIT $inicio , $limit";
 
-$sql = "SELECT SQL_CALC_FOUND_ROWS 
-    libros.id_libro,
-    libros.no_inventario, 
-    carrera.nombre_carrera as 'nombre_carrera', 
-    libros.codigo_barras, 
-    libros.titulo_libro,
-    libros.autor_libro, 
-    libros.editorial_libro,
-    libros.anio_libro, 
-    libros.edicion_libro, 
-    CASE 
-        WHEN libros.fecha_libro = '1970-01-01' THEN 'SIN FECHA' 
-        ELSE libros.fecha_libro 
-    END as 'fecha_libro', 
-    estatus_libro.nombre_estatus as 'estatus'
-FROM libros
-INNER JOIN estatus_libro ON libros.id_estatus = estatus_libro.id_estatus
-INNER JOIN carrera ON libros.id_carrera = carrera.id_carrera    
+$sql = "SELECT SQL_CALC_FOUND_ROWS libros.id_libro, libros.no_inventario, carrera.nombre_carrera as 'nombre_carrera', libros.codigo_barras, libros.titulo_libro, libros.autor_libro, libros.editorial_libro, libros.anio_libro, libros.edicion_libro, CASE WHEN libros.fecha_libro = '1970-01-01' THEN 'SIN FECHA' ELSE libros.fecha_libro END as 'fecha_libro', estatus_libro.nombre_estatus as 'estatus' 
+FROM libros 
+INNER JOIN estatus_libro ON libros.id_estatus = estatus_libro.id_estatus 
+INNER JOIN carrera ON libros.id_carrera = carrera.id_carrera 
 WHERE 
-    libros.no_inventario LIKE '%" . $campo . "%' OR 
-    carrera.nombre_carrera LIKE '%" . $campo . "%' OR 
-    libros.codigo_barras LIKE '%" . $campo . "%' OR 
-    libros.titulo_libro LIKE '%" . $campo . "%' OR 
-    libros.autor_libro LIKE '%" . $campo . "%' OR 
-    libros.editorial_libro LIKE '%" . $campo . "%' OR 
-    libros.anio_libro LIKE '%" . $campo . "%' OR 
-    libros.edicion_libro LIKE '%" . $campo . "%' OR 
-    (CASE 
-        WHEN libros.fecha_libro = '1970-01-01' THEN 'SIN FECHA' 
-        ELSE libros.fecha_libro 
-    END) LIKE '%" . $campo . "%' OR 
-    estatus_libro.nombre_estatus LIKE '%" . $campo . "%' 
+    (libros.no_inventario LIKE '%%' 
+    OR carrera.nombre_carrera LIKE '%%' 
+    OR libros.codigo_barras LIKE '%%' 
+    OR libros.titulo_libro LIKE '%%' 
+    OR libros.autor_libro LIKE '%%' 
+    OR libros.editorial_libro LIKE '%%' 
+    OR libros.anio_libro LIKE '%%' 
+    OR libros.edicion_libro LIKE '%%' 
+    OR (CASE WHEN libros.fecha_libro = '1970-01-01' THEN 'SIN FECHA' ELSE libros.fecha_libro END) LIKE '%%' 
+    OR estatus_libro.nombre_estatus LIKE '%%')
+    AND (libros.id_estatus = 1 OR libros.id_estatus = 2)
 $sLimit;";
+
 
 $resultado = $conn->query($sql);
 $num_rows = $resultado->num_rows;
@@ -64,7 +49,7 @@ $row_filtro = $resFiltro->fetch_array();
 $totalFiltro = $row_filtro[0];
 
 /* Consulta para total de registro filtrados */
-$sqlTotal = "SELECT count($id) FROM $table";
+$sqlTotal = "SELECT count($id) FROM $table WHERE (libros.id_estatus = 1 OR libros.id_estatus = 2)";
 $resTotal = $conn->query($sqlTotal);
 $row_total = $resTotal->fetch_array();
 $totalRegistros = $row_total[0];
@@ -120,7 +105,7 @@ if ($num_rows > 0) {
     }
 } else {
     $output['data'] .= '<tr>';
-    $output['data'] .= '<td colspan="11">No hay resultados acorde a tu búsqueda</td>';
+    $output['data'] .= '<td colspan="11" class="text-center" >No hay resultados acorde a tu búsqueda</td>';
     $output['data'] .= '</tr>';
 }
 if ($output['totalRegistros'] > 0) {

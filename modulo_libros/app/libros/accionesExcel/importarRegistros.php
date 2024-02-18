@@ -62,6 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo_excel'])) {
                     (SELECT estatus_libro.id_estatus FROM estatus_libro WHERE estatus_libro.nombre_estatus = '$estatus')
                     );";
        
+                    // echo $sql;
+                    // exit;
                 $conn->query($sql);
             }
         }

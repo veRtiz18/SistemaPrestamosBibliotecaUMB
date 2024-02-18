@@ -57,8 +57,41 @@ require './../../../conexion/database.php'
         </div>
     </div>
     <div class="container-fluid mt-3">
-        <h1 class="">Administrador de Libros </h1>
-        <h5 class="fw-normal">Verifique el estado de los libros, así como la inserción, modificación y eliminación de los mismos:</h5>
+
+        <div class="row">
+            <div class="col-6">
+                <h1 class="">Administrador de Libros </h1>
+                <h5 class="fw-normal">Verifique el estado de los libros, así como la inserción, modificación y eliminación de los mismos:</h5>
+            </div>
+
+            <div class="col-2"></div>
+            <div class="col-4">
+                <!-- inicia parte de alertas, con variable de sesion que se encuentra en guarda_u, edita_u y elimina_u -->
+                <div class="row justify-content-end mt-2 me-3">
+                    <?php
+                    if (isset($_SESSION['msg']) && isset($_SESSION['color'])) { ?>
+                        <div id="myAlert" class="alert alert-<?= ($_SESSION['color']) ?> alert-dismissible fade show" role="alert">
+                            <i class="fa-solid fa-circle-info"></i> <?= ($_SESSION['msg']); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php
+                        unset($_SESSION['msg']);
+                        unset($_SESSION['color']);
+                    }
+                    ?>
+                </div>
+                <script>
+                    // Agregar un script para ocultar el elemento después de 5 segundos
+                    setTimeout(function() {
+                        var alertElement = document.querySelector('.alert');
+                        if (alertElement) {
+                            alertElement.style.display = 'none';
+                        }
+                    }, 5000); // 5000 milisegundos = 5 segundos
+                </script>
+            </div>
+
+        </div>
     </div>
 
     <div class="container-fluid">

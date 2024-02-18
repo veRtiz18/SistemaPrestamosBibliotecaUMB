@@ -20,8 +20,6 @@ if (!$pagina) {
 }
 $sLimit = "LIMIT $inicio , $limit";
 
-
-
 $sql = "SELECT SQL_CALC_FOUND_ROWS DATE_FORMAT(prestamo.fecha, '%e-%M-%Y') AS fecha_prestamo,
 DATE_FORMAT(prestamo.fecha_entrega, '%e-%M-%Y') AS fecha_entrega,
 prestamo.id_prestamo,
@@ -54,7 +52,8 @@ $row_filtro = $resFiltro->fetch_array();
 $totalFiltro = $row_filtro[0];
 
 /* Consulta para total de registro filtrados */
-$sqlTotal = "SELECT count($id) FROM $table WHERE estatus = 1";
+$sqlTotal = "SELECT count($id) FROM $table WHERE prestamo.fecha_entrega >= CURDATE() AND 
+prestamo.estatus = 1";
 $resTotal = $conn->query($sqlTotal);
 $row_total = $resTotal->fetch_array();
 $totalRegistros = $row_total[0];
@@ -66,9 +65,6 @@ $output['totalRegistros'] = $totalRegistros;
 $output['totalFiltro'] = $totalFiltro;
 $output['data'] = '';
 $output['paginacion'] = '';
-
-//  echo $sql;
-//  exit;
 
 $resultado = $conn->query($sql);
 $num_rows = $resultado->num_rows;

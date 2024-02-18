@@ -6,9 +6,7 @@ require './../../../conexion/database.php';
 
 $no_inventario = $conn->real_escape_string($_POST['id']);
 
-
-
-$sql = "CALL EliminarLibroSiNoInventarioNoEnPrestamo('$no_inventario')";
+$sql = "CALL SP_eliminarLibro('$no_inventario')";
 
 if ($mensaje = mysqli_query($conn, $sql)) {
     while ($fila = mysqli_fetch_array($mensaje, MYSQLI_ASSOC)) {

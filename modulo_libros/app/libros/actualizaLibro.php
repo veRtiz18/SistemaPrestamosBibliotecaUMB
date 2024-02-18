@@ -1,8 +1,9 @@
-<?php 
+<?php
+ session_start();
 require './../../../conexion/database.php';
 
-$id = $conn->real_escape_string($_POST['id']); 
-$no_inv = $conn->real_escape_string($_POST['no_inventario']); 
+$id = $conn->real_escape_string($_POST['id']);
+$no_inv = $conn->real_escape_string($_POST['no_inventario']);
 $carrera_libro = $conn->real_escape_string($_POST['carrera']);
 $codigo_barras = $conn->real_escape_string($_POST['c_barras']);
 $titulo_nombre = $conn->real_escape_string($_POST['n_libro']);
@@ -16,21 +17,17 @@ $estatus_libro = $conn->real_escape_string($_POST['estatus']);
 echo $estatus_libro;
 echo $id;
 echo $no_inv;
-$sql = "UPDATE libros
-SET no_inventario = '$no_inv', 
-    id_carrera = '$carrera_libro', 
-    codigo_barras = '$codigo_barras', 
-    titulo_libro = '$titulo_nombre', 
-    autor_libro = '$autor_libro', 
-    editorial_libro = '$editorial_libro', 
-    anio_libro = '$anio', 
-    edicion_libro = '$edicion', 
-    fecha_libro = '$fecha_don_rec', 
-    id_estatus = $estatus_libro
-    WHERE id_libro = $id";
+$sql = "CALL SP_actualizarLibro($id,
+'$no_inv','$carrera_libro','$codigo_barras','$titulo_nombre','$autor_libro',
+'$editorial_libro','$anio','$edicion', '$fecha_don_rec');
+";
 
-    if($conn->query($sql)){
-        $id = $conn->insert_id;
-    }
-    header('Location: index.php');
-?>
+
+
+$mensaje = mysqli_query($conn, $sql);
+
+while ($fila = mysqli_fetch_array($mensaje, MYSQLI_ASSOC)) {
+    $_SESSION['msg'] = $fila['mensaje'];
+    $_SESSION['color'] = $fila['color'];
+}
+header('Location: index.php');
