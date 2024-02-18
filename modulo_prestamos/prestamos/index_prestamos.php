@@ -246,14 +246,9 @@ require('./../../../UMB_biblioteca/conexion/database.php');
                 inputestatus.value = data.descripcion_estatus;
                 inputfecha_inicio.value = data.fecha;
                 inputfecha_final.value = data.fecha_entrega;
-                // carrera_libro.value = data.carrera_libro;
-                // carrera_alumno.value = data.carrera_alumno;
-
-
             })
             .catch(err => console.error(err));
     });
-
 
     //parte del modal donde se muestra el reporte PDF
 
@@ -302,6 +297,48 @@ require('./../../../UMB_biblioteca/conexion/database.php');
     });
 
     //parte para el posponer un prestamo: 
+
+
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #matricula').value = "";
+    })
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #nombre_alumno').value = "";
+    })
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #carrera').value = "";
+    })
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #semestre').value = "";
+    })
+
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #folio').value = "";
+    })
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #nombre_libro').value = "";
+    })
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #nombre_editorial').value = "";
+    })
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #nombre_autor').value = "";
+    })
+
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #estatus').value = "";
+    })
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #fecha_inicio').value = "";
+    })
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #fecha_final').value = "";
+    })
+    aplazarPrestamoModal.addEventListener('hide.bs.modal', event => {
+        aplazarPrestamoModal.querySelector('.modal-body #carrera_alumno').value = "";
+    })
+
+
     aplazarPrestamoModal.addEventListener('shown.bs.modal', event => {
         aplazarPrestamoModal.querySelector('.modal-body #fecha_final').focus()
     })

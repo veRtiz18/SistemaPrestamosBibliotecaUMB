@@ -5,7 +5,7 @@ require('./../../../UMB_biblioteca/conexion/database.php');
 
 $campo = $_POST["campo"];
 
-$sql = "CALL SP_buscarLibroS('$campo');";
+$sql = "CALL SP_buscarLibros('$campo');";
 $query = mysqli_query($conn, $sql);
 
 $html = "";

@@ -1,3 +1,8 @@
+// Autor: Carlos Ricardo Vertiz 
+// correo ricardovertizcarlos@gmail.com
+// Fecha: Jueves 17 de febrero del 2024
+
+
 document.getElementById("campoUsuarios").addEventListener("keyup", getCodigos)
 
 function getCodigos() {
