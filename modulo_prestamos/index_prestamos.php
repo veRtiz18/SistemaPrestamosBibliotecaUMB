@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('./../../../UMB_biblioteca/conexion/database.php');
+require('./../../UMB_biblioteca/conexion/database.php');
 ?>
 
 <!DOCTYPE html>
@@ -10,21 +10,21 @@ require('./../../../UMB_biblioteca/conexion/database.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Préstamos | UMB Jilotepec</title>
-    <link href="./../../assets/css/styles.css" rel="stylesheet">
-    <link href="./../../assets/css/all.min.css" rel="stylesheet">
-    <link href="./../../assets/css/header.css" rel="stylesheet">
+    <link href="./../assets/css/styles.css" rel="stylesheet">
+    <link href="./../assets/css/all.min.css" rel="stylesheet">
+    <link href="./../assets/css/header.css" rel="stylesheet">
 
-    <script src="./../../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="./../../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./../assets/js/jquery-3.7.1.min.js"></script>
 </head>
 <div class="container-fluid mb-2">
     <div class="d-flex justify-content-between align-items-center">
         <div class="mb-1 mt-1">
-            <img src="./../../assets/img/logo_edomex.png" alt="Gobierno del Estado de México" width="170px" height="50px">
+            <img src="./../assets/img/logo_edomex.png" alt="Gobierno del Estado de México" width="170px" height="50px">
 
         </div>
         <div class="mb-1 mt-1 text-right text-light">
-            <img src="./../../assets/img/logo_umb.png" alt="Universidad Mexiquense Del Bicentenario" width="100px" height="50px">
+            <img src="./../assets/img/logo_umb.png" alt="Universidad Mexiquense Del Bicentenario" width="100px" height="50px">
         </div>
     </div>
 </div>
@@ -187,6 +187,6 @@ require('./../../../UMB_biblioteca/conexion/database.php');
 <?php require('./modales/confirmacionGenerarPDFModal.php'); ?>
 <?php require('./modales/aplazarPrestamoModal.php'); ?>
 
-<script src="./../assets/funcionalidad_index_prestamos/funcionalidad_table.js"></script>
+<script src="./assets/funcionalidad_index_prestamos/funcionalidad_table.js"></script>
 
 </html>

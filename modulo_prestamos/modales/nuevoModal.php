@@ -19,7 +19,7 @@
                                         <input type="text" name="campo" id="campo" class="form-control" placeholder="Ingrese aquí el número de inventario" autocomplete="off" required>
                                     <div id="lista"></div>
                                     </p>
-                                    <script src="./../assets/js/peticiones.js"></script>
+                                    <script src="./assets/js/peticiones.js"></script>
                                 </div>
                             </div>
 
@@ -32,7 +32,7 @@
                                         <input type="text" name="campoUsuarios" id="campoUsuarios" class="form-control" placeholder="Ingrese aquí la matrícula del usuario" autocomplete="off" required>
                                     <div id="listaUsuarios"></div>
                                     </p>
-                                    <script src="./../assets/js/peticionesUsuarios.js"></script>
+                                    <script src="./assets/js/peticionesUsuarios.js"></script>
                                 </div>
                             </div>
 
@@ -55,7 +55,7 @@
                         <!-- <button type='submit' class='btn btn-success'><i class='fa-solid fa-floppy-disk'></i> Registrar</button> -->
                     </div>
                 </form>
-                <script src="./../assets/js/peticionesBoton.js"></script>
+                <script src="./assets/js/peticionesBoton.js"></script>
             </div>
         </div>
     </div>
