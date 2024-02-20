@@ -69,7 +69,6 @@ $sLimit";
 $resultado = $conn->query($sql);
 $num_rows = $resultado->num_rows;
 
-
 /* Consulta para total de registro filtrados */
 $sqlFiltro = "SELECT FOUND_ROWS()";
 $resFiltro = $conn->query($sqlFiltro);

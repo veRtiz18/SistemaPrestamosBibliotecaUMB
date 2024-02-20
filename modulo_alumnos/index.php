@@ -95,7 +95,7 @@ require 'config/database.php';
                         }, 5000); // 5000 milisegundos = 5 segundos
                     </script>
                 </div>
-                
+
             </div>
         </div>
 
@@ -119,8 +119,10 @@ require 'config/database.php';
                 </div>
 
                 <div class="col-3 mt-5">
-                    <div class="d-grid gap-2 d-md-flex justify-content-end rounded mb-1 mb-md-0">
-                        <a href="#" class="btn bg-success text-light" data-bs-toggle="modal" data-bs-target="#nuevoModal">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="#" class="btn btn-excel-color me-md-2" data-bs-toggle="modal" data-bs-target="#modalMenuExcel">
+                            <i class="fa-solid fa-file-excel"></i> Opciones Excel</a>
+                        <a href="#" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#nuevoModal">
                             <i class="fa-solid fa-circle-plus"></i> Nuevo Registro</a>
                     </div>
                 </div>
@@ -252,6 +254,7 @@ require 'config/database.php';
 
         <?php include 'editaModal.php'; ?>
         <?php include 'eliminaModal.php'; ?>
+        <?php include 'opcionesExcelModal.php'; ?>
 
         <script>
             let nuevoModal = document.getElementById('nuevoModal')

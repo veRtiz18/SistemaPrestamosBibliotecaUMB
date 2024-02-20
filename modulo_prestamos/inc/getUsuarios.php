@@ -2,7 +2,8 @@
 
 require('./../../../UMB_biblioteca/conexion/database.php');
 
-$campo = $_POST["campoUsuarios"];
+// $campo = $_POST["campoUsuarios"];
+$campo = '202023097';
 
 $sql = "CALL SP_buscarUsuarios('$campo');";
 $query = mysqli_query($conn, $sql);
@@ -13,6 +14,7 @@ $html = "";
 $num_registros = mysqli_num_rows($query);
 
 while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+    // echo $fila["v_matricula"];
     if ($fila["v_matricula"] == "") {
         $html .= "<div class='alert alert-danger' role='alert'>No existe un usuario con el valor introducido. Inténtelo nuevamente.
             </div>";

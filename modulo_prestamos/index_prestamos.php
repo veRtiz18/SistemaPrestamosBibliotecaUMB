@@ -154,10 +154,16 @@ require('./../../UMB_biblioteca/conexion/database.php');
 
         <div class="row">
             <div class="col-4">
-                <a class="btn btn-danger">
-                    <i class="fa-solid fa-file-pdf"></i>
-                    Generar Adeudos en PDF
-                </a>
+                <div class="dropdown-center">
+                    <button class="btn btn-outline-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Generar Reportes PDF
+                    </button>
+                    <ul class="dropdown-menu">
+        
+                        <li><a class="dropdown-item" href="./pdf/pdf-vigentes.php">Préstamos Vigentes</a></li>
+                        <li><a class="dropdown-item" href="./pdf/pdf-vencidos.php">Préstamos Vencidos</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="col-2">
                 <label id="lbl-total" class="mt-2"></label>
